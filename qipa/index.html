@@ -1,0 +1,157 @@
+<?php
+require_once "jssdk.php";
+$jssdk = new JSSDK("wx8c22f7a19d448955", "d51e6cb364288c0d457783b64e71b42b");
+$signPackage = $jssdk->GetSignPackage();
+?>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>古诗文中20个最易读错的字，你读对了没？</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scale=no">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery-2.1.3.js"></script>
+
+</head>
+<body>
+<div id="container">
+<video src="music.mp3" autoplay="autoplay">
+您的浏览器不支持 video 标签。
+</video>
+<!-- 最上面的图片 -->
+		<div class="title"><img src="title.png"/></div>
+		<div class="tishu"><p><span>1</span>/20</p></div>
+<!-- 内容部分 -->
+	<div id="content">
+		<div id="question">
+		<div id="timu">1.人生在世不称意，明朝散发弄扁舟。这里的“扁”念：</div>
+			<ul>
+				<li class="answer1"> “piān” </li>
+				<li class="answer2"> “biǎn” </li>
+			</ul>
+		</div>
+		<div class="mobaiImg">
+			<img id="mobai" src="mobai.jpg" style="display:none;" />
+		</div>
+		<div class="xianqiImg">
+			<img id="xianqi" src="xianqi.gif" style="display:none;"/>
+		</div>
+		<div id="jiedu" style="display:none;"></div>
+		<div id="btn" style="display:none;" class="next"><button id="ev">NEXT</button></div>
+	</div>
+	
+	
+<!-- 最后查看分数部分 -->
+	<div id="fenshu" style="display:none;">查看分数~duang</div>
+	<div id="cfenshu" style="display:none;">
+	   <!-- 分享 -->
+	   <div class="share">分数：<span></span></div>
+	   <div><a href="javascript:;" class="shareImg" style="margin-top:30px;">扔到朋友圈</a></div>
+	   <!-- 游戏列表 -->
+	   <div>
+	      <ul>
+		     <li class="shareBtn"><a href="http://mp.weixin.qq.com/s?__biz=MzA3ODU3NTA5Mg==&mid=203890070&idx=1&sn=231b63169d541096049cfa28fb629279#rd">关注我们</a></li>
+		  </ul>
+	   </div>
+	</div>
+	
+		
+<!-- footer -->
+<!--	<div class="footer">
+		<a href="http://mp.weixin.qq.com/s?__biz=MjM5NjAxNzg5Mg==&mid=208931265&idx=1&sn=1a863366528b4c73d98362271839cc87&scene=1&key=1936e2bc22c2ceb5fb836b2eb9fbad1fbcb4a2eda1227a2d438307b96d087429b77b67eb14daa08251f6e648d0d6ebca&ascene=1&uin=MjA4NjIzNDAzNA%3D%3D&devicetype=Windows+7&version=61000721&pass_ticket=hvfsa05NVn%2B3w6Yttc9gsEU9zTdupQZd13iisE8C9oI6Ikl7zVF4M6W72bWJrLlw">
+		<img src="footer.jpg" width="100%" style="padding-top:20px;height:170px;"/>
+		</a>
+	</div> -->
+	
+<!-- 遮罩层效果 -->	
+	<div><img src="shareImg.png" id="shareImg" style="display:none;"/></div>
+	<div style=" display:none;" id="zhezhao"></div>
+	<div class="fxtext">
+	   <ul>
+		     <li class="game game1"><a href="http://ishow027.cn/game/cy">成语拼写，看你能做对几题？</a></li>
+         <li class="game game2"><a href="http://shicishijie.cn/poemfill/">看看你能背出多少古诗词！</a></li>            
+         <li class="game game3"><a href="http://shicishijie.cn/tools/">查诗/写诗/测试工具</a></li>           
+         <li class="game game4"><a href="http://mp.weixin.qq.com/s?__biz=MjM5NjAxNzg5Mg==&mid=208931265&idx=1&sn=1a863366528b4c73d98362271839cc87&scene=18#wechat_redirect ">诗词世界培训班招生启事</a></li>
+         <li class="game game5"><a href="http://www.wxx8.com/show.php?id=158">2015热门微信，总有几款适合你</a></li>            
+	   </ul>
+	</div>
+</div>
+
+</body>
+<script type="text/javascript" src="js.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+  /*
+   * 注意：
+   * 1. 所有的JS接口只能在公众号绑定的域名下调用，公众号开发者需要先登录微信公众平台进入“公众号设置”的“功能设置”里填写“JS接口安全域名”。
+   * 2. 如果发现在 Android 不能分享自定义内容，请到官网下载最新的包覆盖安装，Android 自定义分享接口需升级至 6.0.2.58 版本及以上。
+   * 3. 常见问题及完整 JS-SDK 文档地址：http://mp.weixin.qq.com/wiki/7/aaa137b55fb2e0456bf8dd9148dd613f.html
+   *
+   * 开发中遇到问题详见文档“附录5-常见错误及解决办法”解决，如仍未能解决可通过以下渠道反馈：
+   * 邮箱地址：weixin-open@qq.com
+   * 邮件主题：【微信JS-SDK反馈】具体问题
+   * 邮件内容说明：用简明的语言描述问题所在，并交代清楚遇到该问题的场景，可附上截屏图片，微信团队会尽快处理你的反馈。
+   */
+  wx.config({
+    debug: false,
+    appId: '<?php echo $signPackage["appId"];?>',
+    timestamp: <?php echo $signPackage["timestamp"];?>,
+    nonceStr: '<?php echo $signPackage["nonceStr"];?>',
+    signature: '<?php echo $signPackage["signature"];?>',
+    jsApiList: [
+      // 所有要调用的 API 都要加到这个列表中
+      "onMenuShareTimeline",
+	  "onMenuShareAppMessage",
+	  "onMenuShareQQ"
+    ]
+  });
+  wx.ready(function () {
+    // 在这里调用 API
+    wx.onMenuShareTimeline({
+    title: '《古诗易错字》考试，你敢来挑战吗', // 分享标题
+    link: 'http://ishow027.cn/yicuozi/index.php', // 分享链接
+    imgUrl: 'http://ishow027.cn/yicuozi/123.png', // 分享图标	
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+        alert("分享成功");
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+        alert("分享失败");
+    }
+});
+    wx.onMenuShareAppMessage({
+    title: '《古诗易错字》考试，你敢来挑战吗', // 分享标题
+    desc: '古诗文中20个最易读错的字，你读对了没？敢来挑战吗？', // 分享描述
+    link: 'http://ishow027.cn/yicuozi/index.php', // 分享链接
+    imgUrl: 'http://ishow027.cn/yicuozi/123.png', // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+        alert("分享成功");
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+        alert("分享失败");
+    }
+});
+    wx.onMenuShareQQ({
+    title: '《古诗易错字》考试，你敢来挑战吗', // 分享标题
+    desc: '古诗文中20个最易读错的字，你读对了没？敢来挑战吗？', // 分享描述
+    link: 'http://ishow027.cn/yicuozi/index.php', // 分享链接
+    imgUrl: 'http://ishow027.cn/yicuozi/123.png', // 分享图标
+    type: '', // 分享类型,music、video或link，不填默认为link
+    dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+    success: function () { 
+        // 用户确认分享后执行的回调函数
+        alert("分享成功");
+    },
+    cancel: function () { 
+        // 用户取消分享后执行的回调函数
+        alert("分享失败");
+    }
+});
+  });
+</script>
+</html>
